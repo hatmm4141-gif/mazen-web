@@ -16,8 +16,8 @@
         .hero { background: linear-gradient(135deg, #0f172a, #1e3a8a); color: white; text-align: center; padding: 90px 20px; }
         .hero h1 { font-size: 38px; margin-bottom: 15px; }
         .hero p { font-size: 18px; max-width: 650px; margin: 0 auto 30px; color: #cbd5e1; }
-        .btn { background-color: #38bdf8; color: #0f172a; padding: 14px 32px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; border: none; cursor: pointer; font-size: 16px; }
-        .btn:hover { background-color: #7dd3fc; }
+        .btn { background-color: #22c55e; color: white; padding: 14px 32px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; border: none; cursor: pointer; font-size: 16px; }
+        .btn:hover { background-color: #16a34a; }
 
         .services { padding: 60px 8%; text-align: center; }
         .services h2 { font-size: 32px; margin-bottom: 40px; color: #0f172a; }
@@ -48,7 +48,7 @@
     <section class="hero" id="home">
         <h1>اصنع واجهة احترافية لشركتك على الإنترنت</h1>
         <p>أصمم مواقع إلكترونية سريعة، عصرية، ومتجاوبة مع الموبايل تساعد شركتك على كسب ثقة العملاء وزيادة مبيعاتك في أسرع وقت.</p>
-        <a href="#contact" class="btn">اطلب موقعك الآن</a>
+        <a href="https://wa.meً%20مازن،%20محتاج%20أستفسر%20عن%20تصميم%20موقع%20لشركتي" target="_blank" class="btn">تواصل معي واتساب الآن</a>
     </section>
 
     <section class="services" id="services">
@@ -71,14 +71,13 @@
 
     <section class="contact" id="contact">
         <h2>ابدأ مشروعك الآن</h2>
-        <p>املأ البيانات التالية واضغط إرسال لفتح البريد الإلكتروني برسالتك جاهزة</p>
-        <form onsubmit="sendEmail(event)">
+        <p>املأ البيانات التالية واضغط إرسال وسيتم فتح الواتساب بالرسالة جاهزة</p>
+        <form onsubmit="sendWhatsApp(event)">
             <input type="text" id="clientName" placeholder="اسمك أو اسم الشركة" required>
-            <input type="tel" id="clientPhone" placeholder="رقم الموبايل للتواصل" required>
             <textarea id="clientMsg" rows="4" placeholder="اشرح باختصار نوع الموقع اللي محتاجه..." required></textarea>
-            <button type="submit" class="btn">إرسال عبر البريد الإلكتروني</button>
+            <button type="submit" class="btn">إرسال عبر واتساب</button>
         </form>
-        <p style="margin-top: 20px; font-size: 15px;">أو راسلني مباشرة على الإيميل: <strong>hatmm4141@gmail.com</strong></p>
+        <p style="margin-top: 20px; font-size: 16px;">أو تواصل مباشرة على واتساب: <strong dir="ltr">01204018065</strong></p>
     </section>
 
     <footer>
@@ -86,14 +85,12 @@
     </footer>
 
     <script>
-        function sendEmail(e) {
+        function sendWhatsApp(e) {
             e.preventDefault();
             var name = document.getElementById("clientName").value;
-            var phone = document.getElementById("clientPhone").value;
             var msg = document.getElementById("clientMsg").value;
-            var subject = encodeURIComponent("طلب تصميم موقع جديد من: " + name);
-            var body = encodeURIComponent("الاسم / الشركة: " + name + "\nرقم الموبايل: " + phone + "\n\nتفاصيل المشروع:\n" + msg);
-            window.location.href = "mailto:hatmm4141@://gmail.com" + subject + "&body=" + body;
+            var text = encodeURIComponent("أهلاً مازن، أنا: " + name + "\nتفاصيل الموقع المطلوب: " + msg);
+            window.open("https://wa.me" + text, "_blank");
         }
     </script>
 
