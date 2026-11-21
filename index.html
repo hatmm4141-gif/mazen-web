@@ -16,8 +16,8 @@
         .hero { background: linear-gradient(135deg, #0f172a, #1e3a8a); color: white; text-align: center; padding: 90px 20px; }
         .hero h1 { font-size: 38px; margin-bottom: 15px; }
         .hero p { font-size: 18px; max-width: 650px; margin: 0 auto 30px; color: #cbd5e1; }
-        .btn { background-color: #22c55e; color: white; padding: 14px 32px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; border: none; cursor: pointer; font-size: 16px; }
-        .btn:hover { background-color: #16a34a; }
+        .btn { background-color: #38bdf8; color: #0f172a; padding: 14px 32px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; border: none; cursor: pointer; font-size: 16px; }
+        .btn:hover { background-color: #7dd3fc; }
 
         .services { padding: 60px 8%; text-align: center; }
         .services h2 { font-size: 32px; margin-bottom: 40px; color: #0f172a; }
@@ -48,7 +48,7 @@
     <section class="hero" id="home">
         <h1>اصنع واجهة احترافية لشركتك على الإنترنت</h1>
         <p>أصمم مواقع إلكترونية سريعة، عصرية، ومتجاوبة مع الموبايل تساعد شركتك على كسب ثقة العملاء وزيادة مبيعاتك في أسرع وقت.</p>
-        <a href="https://whatsapp.comً%20مازن،%20محتاج%20أستفسر%20عن%20تصميم%20موقع%20لشركتي" class="btn">تواصل معي واتساب الآن</a>
+        <a href="#contact" class="btn">اطلب موقعك الآن</a>
     </section>
 
     <section class="services" id="services">
@@ -71,28 +71,20 @@
 
     <section class="contact" id="contact">
         <h2>ابدأ مشروعك الآن</h2>
-        <p>املأ البيانات التالية واضغط إرسال وسيتم تحويلك للواتساب مباشرة بالرسالة جاهزة</p>
-        <form onsubmit="sendToWhatsApp(event)">
-            <input type="text" id="clientName" placeholder="اسمك أو اسم الشركة" required>
-            <textarea id="clientMsg" rows="4" placeholder="اشرح باختصار نوع الموقع اللي محتاجه..." required></textarea>
-            <button type="submit" class="btn">إرسال الطلب عبر واتساب</button>
+        <p>املأ البيانات التالية وسأتواصل معك عبر البريد الإلكتروني أو الهاتف في أسرع وقت</p>
+        <!-- ضع إيميلك الحقيقي مكان your-email@gmail.com -->
+        <form action="https://formsubmit.co" method="POST">
+            <input type="text" name="name" placeholder="اسمك أو اسم الشركة" required>
+            <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
+            <input type="tel" name="phone" placeholder="رقم الموبايل للتواصل" required>
+            <textarea name="message" rows="4" placeholder="اشرح باختصار نوع الموقع اللي محتاجه..." required></textarea>
+            <button type="submit" class="btn">إرسال الطلب</button>
         </form>
     </section>
 
     <footer>
         <p>تصميم وتطوير مازن &copy; 2026 - جميع الحقوق محفوظة</p>
     </footer>
-
-    <script>
-        function sendToWhatsApp(event) {
-            event.preventDefault();
-            var name = document.getElementById("clientName").value;
-            var msg = document.getElementById("clientMsg").value;
-            var phone = "201204018065";
-            var text = encodeURIComponent("أهلاً مازن، أنا: " + name + "\nتفاصيل الموقع المطلوب: " + msg);
-            window.location.href = "https://whatsapp.com" + phone + "&text=" + text;
-        }
-    </script>
 
 </body>
 </html>
