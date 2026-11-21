@@ -30,7 +30,6 @@
         .contact p { color: #64748b; margin-bottom: 25px; }
         form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
         input, textarea { padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 16px; width: 100%; }
-        #result { font-weight: bold; margin-top: 10px; font-size: 16px; }
 
         footer { background-color: #0f172a; color: #94a3b8; text-align: center; padding: 20px; }
     </style>
@@ -72,17 +71,14 @@
 
     <section class="contact" id="contact">
         <h2>ابدأ مشروعك الآن</h2>
-        <p>املأ البيانات التالية وسأتواصل معك عبر البريد الإلكتروني أو الهاتف في أسرع وقت</p>
-        <form id="contactForm">
-            <input type="hidden" name="access_key" value="c41b3161-684b-4407-af30-709352f27e7b">
-            <input type="hidden" name="subject" value="طلب تصميم موقع جديد من موقع مازن ويب">
-            <input type="text" name="name" placeholder="اسمك أو اسم الشركة" required>
-            <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
-            <input type="tel" name="phone" placeholder="رقم الموبايل للتواصل" required>
-            <textarea name="message" rows="4" placeholder="اشرح باختصار نوع الموقع اللي محتاجه..." required></textarea>
-            <button type="submit" class="btn" id="submitBtn">إرسال الطلب</button>
-            <div id="result"></div>
+        <p>املأ البيانات التالية واضغط إرسال لفتح البريد الإلكتروني برسالتك جاهزة</p>
+        <form onsubmit="sendEmail(event)">
+            <input type="text" id="clientName" placeholder="اسمك أو اسم الشركة" required>
+            <input type="tel" id="clientPhone" placeholder="رقم الموبايل للتواصل" required>
+            <textarea id="clientMsg" rows="4" placeholder="اشرح باختصار نوع الموقع اللي محتاجه..." required></textarea>
+            <button type="submit" class="btn">إرسال عبر البريد الإلكتروني</button>
         </form>
+        <p style="margin-top: 20px; font-size: 15px;">أو راسلني مباشرة على الإيميل: <strong>hatmm4141@gmail.com</strong></p>
     </section>
 
     <footer>
@@ -90,48 +86,15 @@
     </footer>
 
     <script>
-        const form = document.getElementById('contactForm');
-        const result = document.getElementById('result');
-        const submitBtn = document.getElementById('submitBtn');
-
-        form.addEventListener('submit', function(e) {
+        function sendEmail(e) {
             e.preventDefault();
-            submitBtn.disabled = true;
-            submitBtn.innerText = "جاري الإرسال...";
-            result.innerHTML = "";
-
-            const formData = new FormData(form);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
-
-            fetch('https://web3forms.com', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async (response) => {
-                let jsonRes = await response.json();
-                if (response.status == 200) {
-                    result.style.color = "#16a34a";
-                    result.innerHTML = "✅ تم إرسال طلبك بنجاح! سأتواصل معك قريباً.";
-                    form.reset();
-                } else {
-                    result.style.color = "#dc2626";
-                    result.innerHTML = "حدث خطأ: " + jsonRes.message;
-                }
-            })
-            .catch(error => {
-                result.style.color = "#dc2626";
-                result.innerHTML = "تعذر الاتصال، تأكد من الإنترنت وحاول مرة أخرى.";
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerText = "إرسال الطلب";
-            });
-        });
+            var name = document.getElementById("clientName").value;
+            var phone = document.getElementById("clientPhone").value;
+            var msg = document.getElementById("clientMsg").value;
+            var subject = encodeURIComponent("طلب تصميم موقع جديد من: " + name);
+            var body = encodeURIComponent("الاسم / الشركة: " + name + "\nرقم الموبايل: " + phone + "\n\nتفاصيل المشروع:\n" + msg);
+            window.location.href = "mailto:hatmm4141@://gmail.com" + subject + "&body=" + body;
+        }
     </script>
 
 </body>
