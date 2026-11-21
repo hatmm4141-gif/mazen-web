@@ -8,34 +8,29 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
         body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
 
-        /* الهيدر */
         header { background-color: #0f172a; color: white; padding: 18px 8%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         .logo { font-size: 24px; font-weight: bold; color: #38bdf8; }
         nav a { color: white; text-decoration: none; margin-right: 20px; font-size: 16px; }
         nav a:hover { color: #38bdf8; }
 
-        /* القسم الترحيبي */
         .hero { background: linear-gradient(135deg, #0f172a, #1e3a8a); color: white; text-align: center; padding: 90px 20px; }
         .hero h1 { font-size: 38px; margin-bottom: 15px; }
         .hero p { font-size: 18px; max-width: 650px; margin: 0 auto 30px; color: #cbd5e1; }
         .btn { background-color: #22c55e; color: white; padding: 14px 32px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; border: none; cursor: pointer; font-size: 16px; }
         .btn:hover { background-color: #16a34a; }
 
-        /* قسم الخدمات */
         .services { padding: 60px 8%; text-align: center; }
         .services h2 { font-size: 32px; margin-bottom: 40px; color: #0f172a; }
         .cards { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
         .card { background: white; padding: 30px; border-radius: 10px; width: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .card h3 { color: #1e3a8a; margin-bottom: 10px; }
 
-        /* قسم تواصل معنا */
         .contact { background: white; padding: 60px 8%; text-align: center; }
         .contact h2 { font-size: 30px; margin-bottom: 10px; }
         .contact p { color: #64748b; margin-bottom: 25px; }
         form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
         input, textarea { padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 16px; width: 100%; }
 
-        /* الفوتر */
         footer { background-color: #0f172a; color: #94a3b8; text-align: center; padding: 20px; }
     </style>
 </head>
@@ -53,7 +48,7 @@
     <section class="hero" id="home">
         <h1>اصنع واجهة احترافية لشركتك على الإنترنت</h1>
         <p>أصمم مواقع إلكترونية سريعة، عصرية، ومتجاوبة مع الموبايل تساعد شركتك على كسب ثقة العملاء وزيادة مبيعاتك في أسرع وقت.</p>
-        <a href="https://wa.meً مازن، محتاج أستفسر عن تصميم موقع لشركتي" class="btn">تواصل معي واتساب الآن</a>
+        <a href="https://whatsapp.comً%20مازن،%20محتاج%20أستفسر%20عن%20تصميم%20موقع%20لشركتي" class="btn">تواصل معي واتساب الآن</a>
     </section>
 
     <section class="services" id="services">
@@ -94,8 +89,8 @@
             var name = document.getElementById("clientName").value;
             var msg = document.getElementById("clientMsg").value;
             var phone = "201204018065";
-            var text = "أهلاً مازن، أنا: " + name + "%0A" + "تفاصيل الموقع المطلوب: " + msg;
-            window.open("https://wa.me" + phone + "?text=" + text, "_blank");
+            var text = encodeURIComponent("أهلاً مازن، أنا: " + name + "\nتفاصيل الموقع المطلوب: " + msg);
+            window.location.href = "https://whatsapp.com" + phone + "&text=" + text;
         }
     </script>
 
